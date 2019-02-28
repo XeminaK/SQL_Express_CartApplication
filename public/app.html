@@ -1,0 +1,18 @@
+<p class="title">Items in your Shopping Cart!</p>
+
+<form ng-submit="$ctrl.addItem(newItem)">
+<input id="input1" type="text" placeholder="product" ng-model="newItem.product">
+<input id="input2" type="text" placeholder="price" ng-model="newItem.price">
+<input id="input3" type="text" placeholder="quantity" ng-model="newItem.quantity">
+<button class="addButton">Add to List</button>
+</form>
+
+<div class="itemContainer">    
+    <section class="shoppingCard" ng-repeat="item in $ctrl.cartItems track by $index">
+    <p>Id: {{item.id}} </p>
+    <p>Product: {{item.product}} </p>
+    <p>Price: $ {{item.price}}</p>
+    <p>Quantity: {{item.quantity}}<button class="material-icons" ng-click="$ctrl.editQuantity(item, newItem);">create</button></p>
+    <button class="removeButton, material-icons" ng-click="$ctrl.removeItem(item);">clear</button>
+    </section>
+</div>
